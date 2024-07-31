@@ -2,7 +2,7 @@ import * as L from "leaflet";
 
 function render() {
   // Create a map container
-  const map = L.map("map").setView([59.313964, 18.070678], 13);
+  const map = L.map("map")
 
   // Add a tile layer to the map
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
@@ -11,9 +11,11 @@ function render() {
   }).addTo(map);
 
   bars.forEach((bar) => {
-    var marker = L.marker(bar.coordinates).addTo(map);
+    var marker = L.marker(bar.coordinates, { icon: barIcon(bar) }).addTo(map);
     marker.bindPopup(barHTLM(bar)).openPopup();
   });
+
+  map.setView([59.313964, 18.070678], 13);
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -21,8 +23,30 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function barHTLM(bar: Bar) {
-    return "<b>" + bar.name + "</b><br>" + bar.price + "kr<br>" + bar.type + "<br>" + bar.rating + "<br>" + bar.link;
+    return `<b>${bar.name}</b><br>💸 Pris: ${bar.price}:- | 🍺 Typ: ${bar.type} | ✅ Rating: ${bar.rating}/5<br><a href="${bar.link}" target="_blank">${bar.link}</a>`;
 }
+
+function barIcon(bar: Bar) {
+    var bottleIcon = L.icon({
+      iconUrl: "img/classic-bottle.png",
+
+      iconSize: [38, 38], // size of the icon (img is square)
+    //   iconAnchor: [22, 94], // point of the icon which will correspond to marker's location
+      popupAnchor: [0, -19], // point from which the popup should open relative to the iconAnchor
+    });
+    var draftIcon = L.icon({
+      iconUrl: "img/classic-logo.png",
+
+      iconSize: [31, 42], // size of the icon (img is 314 × 425)
+    //   iconAnchor: [22, 94], // point of the icon which will correspond to marker's location
+      popupAnchor: [0, -21], // point from which the popup should open relative to the iconAnchor
+    });
+    if (bar.type === "Flaska") {
+      return bottleIcon;
+    } else {
+        return draftIcon;
+    }
+} 
 
 // Define a struct called Bar
 interface Bar {
@@ -35,6 +59,14 @@ interface Bar {
 }
 
 const bars: Bar[] = [
+  {
+    name: "Folk Pizza och Bar",
+    price: 82,
+    type: "Fat",
+    rating: 5,
+    link: "https://maps.app.goo.gl/WoobbsvmoSrCJEm57",
+    coordinates: [55.706943296024754, 13.189310597817657],
+  },
   {
     name: "Sofia Common",
     price: 78,
