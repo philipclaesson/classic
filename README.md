@@ -1,4 +1,4 @@
-## ts-template
-- replace `ts-template` everywhere
+## classickartan
+- replace `classickartan` everywhere
 - npm install
 - done
