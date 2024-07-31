@@ -1,0 +1,26 @@
+{
+  "name": "ts-template",
+  "version": "1.0.0",
+  "description": "javascript dj app",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "live-server --no-browser",
+    "build": "webpack",
+    "dev": "webpack && concurrently \"webpack -w\" \"live-server --no-browser\"",
+    "test": "jest --verbose",
+    "lint": "eslint src --ext .ts",
+    "fix": "eslint --fix src --ext .ts"
+  },
+  "author": "philip.claesson@gmail.com",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^8.2.0",
+    "eslint": "^8.45.0",
+    "live-server": "^1.2.2",
+    "ts-jest": "^29.1.1",
+    "ts-loader": "^9.4.4",
+    "typescript": "^5.1.6",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4"
+  }
+}

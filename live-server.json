@@ -1,0 +1,12 @@
+{
+  "mount": [
+    {
+      "route": "/",
+      "directory": "./dist"
+    }
+  ],
+  "mimeTypes": {
+    "js": "application/javascript"
+  }
+}
+
