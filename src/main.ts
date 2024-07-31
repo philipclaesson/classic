@@ -27,16 +27,18 @@ function barHTLM(bar: Bar) {
 }
 
 function barIcon(bar: Bar) {
+    const vw = window.innerWidth;
+    const vh = window.innerHeight;
     var bottleIcon = L.icon({
       iconUrl: "img/classic-bottle.png",
 
-      iconSize: [38, 38], // size of the icon (img is square)
+      iconSize: [0.05*vw, 0.05*vw], // size of the icon (img is square)
       popupAnchor: [0, -19], // point from which the popup should open relative to the iconAnchor
     });
     var draftIcon = L.icon({
       iconUrl: "img/classic-logo.png",
 
-      iconSize: [31, 42], // size of the icon (img is 314 × 425)
+      iconSize: [31*0.001*vw, 42*0.001*vw], // size of the icon (img is 314 × 425)
       popupAnchor: [0, -21], // point from which the popup should open relative to the iconAnchor
     });
     if (bar.type === "Flaska") {
