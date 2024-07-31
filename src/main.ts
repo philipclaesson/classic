@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function barHTLM(bar: Bar) {
-    return `<b>${bar.name}</b><br>💸 Pris: ${bar.price}:- | 🍺 Typ: ${bar.type} | ✅ Rating: ${bar.rating}/5<br><a href="${bar.link}" target="_blank">${bar.link}</a>`;
+    return `<b>${bar.name}</b><br>💸 Pris: ${bar.price}:- | 🍺 Typ: ${bar.type} | ✅ Rating: ${bar.rating}/5<br><a href="${bar.link}" target="_blank">Visa mer</a>`;
 }
 
 function barIcon(bar: Bar) {
@@ -31,14 +31,12 @@ function barIcon(bar: Bar) {
       iconUrl: "img/classic-bottle.png",
 
       iconSize: [38, 38], // size of the icon (img is square)
-    //   iconAnchor: [22, 94], // point of the icon which will correspond to marker's location
       popupAnchor: [0, -19], // point from which the popup should open relative to the iconAnchor
     });
     var draftIcon = L.icon({
       iconUrl: "img/classic-logo.png",
 
       iconSize: [31, 42], // size of the icon (img is 314 × 425)
-    //   iconAnchor: [22, 94], // point of the icon which will correspond to marker's location
       popupAnchor: [0, -21], // point from which the popup should open relative to the iconAnchor
     });
     if (bar.type === "Flaska") {
