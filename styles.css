@@ -1,8 +1,8 @@
 #map {
     height: 80vh;
-    width: 90vw;
-    margin-left: 5vw;
-    margin-right: 5vw;
+    width: 100vw;
+    margin-left: 0vw;
+    margin-right: 0vw;
 }
 
 
@@ -16,7 +16,7 @@ tuborg: #EBAB47;
 */
 
 :root {
-    --green: #759C57;
+    --green: #44712E;
     --red: #C13943;
     --beige: #FBEEA1;
     --black: #000000;
@@ -26,7 +26,7 @@ tuborg: #EBAB47;
 
 body {
     background-color: var(--green);
-    color: var(--red)
+    margin: 0;
 }
 
 #header {
@@ -35,7 +35,17 @@ body {
 
 #logo {
     height: 100%;
-    margin-left: 45vw;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.bar {
+    font-size: calc(1.2vw + 1.2vh);
+}
+
+.bar a {
+    color: var(--green);
 }
 
 /* #footer {

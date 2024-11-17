@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function barHTLM(bar: Bar) {
-    return `<b>${bar.name}</b><br>💸 Pris: ${bar.price}:- | 🍺 Typ: ${bar.type} | ✅ Rating: ${bar.rating}/5<br><a href="${bar.link}" target="_blank">Visa mer</a>`;
+    return `<div class="bar"><b>${bar.name}</b><br>💸 ${bar.price}:- | 🍺 ${bar.type} <br> ✅ Rating: ${bar.rating}/5<br><a href="${bar.link}" target="_blank">Ta mig dit</a></div>`;
 }
 
 function barIcon(bar: Bar) {
@@ -32,13 +32,13 @@ function barIcon(bar: Bar) {
     var bottleIcon = L.icon({
       iconUrl: "img/classic-bottle.png",
 
-      iconSize: [0.05*vw, 0.05*vw], // size of the icon (img is square)
+      iconSize: [0.07*vh, 0.07*vh], // size of the icon (img is square)
       popupAnchor: [0, -19], // point from which the popup should open relative to the iconAnchor
     });
     var draftIcon = L.icon({
       iconUrl: "img/classic-logo.png",
 
-      iconSize: [31*0.001*vw, 42*0.001*vw], // size of the icon (img is 314 × 425)
+      iconSize: [31*0.002*vh, 42*0.002*vh], // size of the icon (img is 314 × 425)
       popupAnchor: [0, -21], // point from which the popup should open relative to the iconAnchor
     });
     if (bar.type === "Flaska") {
@@ -194,5 +194,13 @@ const bars: Bar[] = [
     rating: 5,
     link: "https://maps.app.goo.gl/QKNeBgnxzfKRVsw5A",
     coordinates: [55.593070698866384, 13.006663613926827],
+  },
+  {
+    name: "Honey Honey",
+    price: 84,
+    type: "Fat",
+    rating: 5,
+    link: "https://maps.app.goo.gl/o63Aq64XUXnCjz7q8",
+    coordinates: [59.31472364977034, 18.076250197714373],
   },
 ];
