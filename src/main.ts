@@ -203,4 +203,12 @@ const bars: Bar[] = [
     link: "https://maps.app.goo.gl/o63Aq64XUXnCjz7q8",
     coordinates: [59.31472364977034, 18.076250197714373],
   },
+  {
+    name: "Matrosen Smörrebröd",
+    price: 97,
+    type: "Fat",
+    rating: 5,
+    link: "https://maps.app.goo.gl/pZJ8r2h3Km9xxYC79",
+    coordinates: [59.32461686678219, 18.07522673918963],
+  },
 ];
