@@ -13,9 +13,39 @@ function render() {
   bars.forEach((bar) => {
     var marker = L.marker(bar.coordinates, { icon: barIcon(bar) }).addTo(map);
     marker.bindPopup(barHTLM(bar)).openPopup();
+
+    marker.on("popupopen", () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      urlParams.set("bar", bar.urlName);
+      window.history.replaceState(null, "", `?${urlParams.toString()}`);
+    });
+
+    marker.on("popupclose", () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      urlParams.delete("bar");
+      window.history.replaceState(
+        null,
+        "",
+        `${window.location.pathname}`
+      );
+    });
+
+    bar.marker = marker;
   });
 
-  map.setView([59.313964, 18.070678], 6);
+  const urlParams = new URLSearchParams(window.location.search);
+
+  if (!urlParams.has("bar")) {
+    map.setView([59.313964, 18.070678], 6);
+  }
+  const barName = urlParams.get("bar");
+  const bar = bars.find((bar) => bar.urlName === barName);
+  if (bar) {
+    map.setView(bar.coordinates, 15);
+    bar.marker?.openPopup();
+  } else {
+    map.setView([59.313964, 18.070678], 6);
+  }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -51,16 +81,19 @@ function barIcon(bar: Bar) {
 // Define a struct called Bar
 interface Bar {
   name: string;
+  urlName: string;
   price: number;
   type: string;
   rating: number;
   link: string;
   coordinates: L.LatLngTuple;
+  marker?: L.Marker;
 }
 
 const bars: Bar[] = [
   {
     name: "Folk Pizza och Bar",
+    urlName: "folk-pizza-och-bar",
     price: 82,
     type: "Fat",
     rating: 5,
@@ -69,6 +102,7 @@ const bars: Bar[] = [
   },
   {
     name: "Duvan",
+    urlName: "duvan",
     price: 85,
     type: "Fat",
     rating: 5,
@@ -77,6 +111,7 @@ const bars: Bar[] = [
   },
   {
     name: "Snotty Sound Bar",
+    urlName: "snotty",
     price: 75,
     type: "Fat",
     rating: 5,
@@ -85,6 +120,7 @@ const bars: Bar[] = [
   },
   {
     name: "Bar Europa",
+    urlName: "bar-europa",
     price: 82,
     type: "Fat",
     rating: 5,
@@ -93,6 +129,7 @@ const bars: Bar[] = [
   },
   {
     name: "Nybroe Smörrebröd (Hötorgshallen)",
+    urlName: "nybroe-hotorgshallen",
     price: 75,
     type: "Flaska",
     rating: 5,
@@ -101,6 +138,7 @@ const bars: Bar[] = [
   },
   {
     name: "Nybroe Smörrebröd (Östermalmshallen)",
+    urlName: "nybroe-ostermalmshallen",
     price: 75,
     type: "Flaska",
     rating: 5,
@@ -109,6 +147,7 @@ const bars: Bar[] = [
   },
   {
     name: "M.E.A.T",
+    urlName: "meat",
     price: 82,
     type: "Fat",
     rating: 5,
@@ -117,6 +156,7 @@ const bars: Bar[] = [
   },
   {
     name: "ROST ÄNGELHOLM",
+    urlName: "rost",
     price: 103,
     type: "Fat",
     rating: 5,
@@ -125,6 +165,7 @@ const bars: Bar[] = [
   },
   {
     name: "Scalas bakficka",
+    urlName: "scala",
     price: 89,
     type: "Fat",
     rating: 5,
@@ -133,6 +174,7 @@ const bars: Bar[] = [
   },
   {
     name: "Dansken",
+    urlName: "dansken",
     price: 56,
     type: "Fat",
     rating: 5,
@@ -141,6 +183,7 @@ const bars: Bar[] = [
   },
   {
     name: "Kitchen 961",
+    urlName: "kitchen-961",
     price: 65,
     type: "Fat",
     rating: 5,
@@ -149,6 +192,7 @@ const bars: Bar[] = [
   },
   {
     name: "Wollmar",
+    urlName: "wollmar",
     price: 82,
     type: "Fat",
     rating: 5,
@@ -157,6 +201,7 @@ const bars: Bar[] = [
   },
   {
     name: "JP's Bar & Restaurant",
+    urlName: "jps",
     price: 74,
     type: "Fat",
     rating: 5,
@@ -165,6 +210,7 @@ const bars: Bar[] = [
   },
   {
     name: "The Bishops Arms - Umeå",
+    urlName: "bishop-umea",
     price: 96,
     type: "Fat",
     rating: 5,
@@ -173,6 +219,7 @@ const bars: Bar[] = [
   },
   {
     name: "Restaurang Utsikten",
+    urlName: "utsikten",
     price: 75,
     type: "Fat",
     rating: 5,
@@ -181,6 +228,7 @@ const bars: Bar[] = [
   },
   {
     name: "Telegrafen",
+    urlName: "telegrafen",
     price: 79,
     type: "Fat",
     rating: 5,
@@ -189,6 +237,7 @@ const bars: Bar[] = [
   },
   {
     name: "Star",
+    urlName: "star",
     price: 82,
     type: "Fat",
     rating: 5,
@@ -197,6 +246,7 @@ const bars: Bar[] = [
   },
   {
     name: "Honey Honey",
+    urlName: "honey",
     price: 84,
     type: "Fat",
     rating: 5,
@@ -205,6 +255,7 @@ const bars: Bar[] = [
   },
   {
     name: "Matrosen Smörrebröd",
+    urlName: "matrosen",
     price: 97,
     type: "Fat",
     rating: 5,
