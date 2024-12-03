@@ -43,6 +43,25 @@ function render() {
   if (bar) {
     map.setView(bar.coordinates, 15);
     bar.marker?.openPopup();
+    document
+      .getElementById("meta-og-title")
+      ?.setAttribute(
+        "content",
+        `${bar.name} at classickærten.net!`
+      );
+    document
+      .getElementById("meta-og-description")
+      ?.setAttribute(
+        "content",
+        `${bar.name} har Classic på ${bar.type} för ${bar.price}:- 🍺`
+      );
+    document
+      .getElementById("meta-og-url")
+      ?.setAttribute(
+        "content",
+        `${window.location.origin}?bar=${bar.urlName}`
+      );
+
   } else {
     map.setView([59.313964, 18.070678], 6);
   }
