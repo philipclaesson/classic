@@ -281,4 +281,13 @@ const bars: Bar[] = [
     link: "https://maps.app.goo.gl/pZJ8r2h3Km9xxYC79",
     coordinates: [59.32461686678219, 18.07522673918963],
   },
+  {
+    "name": "Café Ariman",
+    urlName: "ariman",
+    price: 76,
+    type: "Fat",
+    rating: 5,
+    link: "https://maps.app.goo.gl/RzN6wLDF9mVBrtjW8",
+    coordinates: [55.70340895488117, 13.193749895193498],
+  }
 ];
