@@ -1,26 +1,77 @@
 <!DOCTYPE html>
-<html>
+<html lang="sv">
     <head>
-        <title>Classickærten</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Classickærten - Classickartan | Map of Tuborg Classic in Sweden | Karta över Tuborg Classic i Sverige</title>
+        
+        <!-- SEO Meta Tags -->
+        <meta name="description" content="Classickartan - Din karta över Tuborg Classic i Sverige. Map of Tuborg Classic locations in Sweden. Karta över alla Tuborg Classic i Sverige.">
+        <meta name="keywords" content="Classickartan, classickærten, map of tuborg classic in sweden, karta över tuborg classic i sverige, tuborg classic sverige, classic karta, tuborg karta, classic map sweden">
+        <meta name="author" content="Classickærten.net">
+        <meta name="robots" content="index, follow">
+        <meta name="language" content="Swedish">
+        <meta name="geo.region" content="SE">
+        <meta name="geo.country" content="Sweden">
+        
+        <!-- Open Graph Meta Tags -->
+        <meta property="og:site_name" content="Classickartan - Classickærten">
+        <meta property="og:title" content="Classickartan - Map of Tuborg Classic in Sweden | Karta över Tuborg Classic i Sverige">
+        <meta property="og:description" content="Hitta en Tuborg Classic nära dig! Find Tuborg Classic locations across Sweden with our interactive map - Classickartan.">
+        <meta property="og:image" content="https://classickærten.net/img/classic-kartan-logo.png">
+        <meta property="og:url" content="https://classickærten.net">
+        <meta property="og:type" content="website">
+        <meta property="og:locale" content="sv_SE">
+        <meta property="og:locale:alternate" content="en_US">
+        
+        <!-- Twitter Card Meta Tags -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Classickartan - Map of Tuborg Classic in Sweden">
+        <meta name="twitter:description" content="Hitta en Tuborg Classic nära dig! Interactive map of all Tuborg Classic locations in Sweden.">
+        <meta name="twitter:image" content="https://classickærten.net/img/classic-kartan-logo.png">
+        
+        <!-- Structured Data -->
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebApplication",
+            "name": "Classickartan",
+            "alternateName": ["Classickærten", "Classic Map Sweden"],
+            "description": "Interactive map showing Tuborg Classic locations across Sweden. Karta över alla Tuborg Classic ställen i Sverige.",
+            "url": "https://classickærten.net",
+            "applicationCategory": "MapApplication",
+            "operatingSystem": "Web Browser",
+            "inLanguage": ["sv", "en"],
+            "areaServed": {
+                "@type": "Country",
+                "name": "Sweden"
+            },
+            "about": {
+                "@type": "Brand",
+                "name": "Tuborg Classic"
+            }
+        }
+        </script>
+        
         <script src="./dist/bundle.js" type="text/javascript"></script>
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
             integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
         <link rel="stylesheet" href="./styles.css">
         <link rel="icon" href="./img/classic-logo.png" type="image/x-icon" />
 
-        <!-- Meta Tags -->
-        <meta property="og:title" id="meta-og-title" content="Classickærten.net" />
-        <meta property="og:description" id="meta-og-description" content="Hitta en Tuborg Classic nära dig!" />
-        <meta property="og:image" id="meta-og-image" content="https://classickærten.net/img/classic-kartan-logo.png" />
-        <meta property="og:url" id="meta-og-url" content="https://classickærten.net" />
-        <meta property="og:type" content="website" />
-
     </head>
     <body>
-        <div id="header">
-            <img id="logo" src="./img/classic-kartan-logo.png" alt="Classic Logo">
+        <!-- Hidden content for SEO -->
+        <h1 style="position: absolute; left: -9999px;">Classickartan - Classickærten: Map of Tuborg Classic in Sweden</h1>
+        <div style="position: absolute; left: -9999px;">
+            <p>Karta över Tuborg Classic i Sverige. Find all Tuborg Classic locations across Sweden with our interactive map.</p>
+            <p>Classickartan är din karta för att hitta Tuborg Classic i hela Sverige.</p>
         </div>
-        <div id="map"></div>
+        
+        <div id="header">
+            <img id="logo" src="./img/classic-kartan-logo.png" alt="Classickartan - Classickærten logo, Map of Tuborg Classic locations in Sweden, Karta över Tuborg Classic i Sverige">
+        </div>
+        <div id="map" role="application" aria-label="Interactive map showing Tuborg Classic locations in Sweden - Classickartan"></div>
         <div id="footer"></div>
     </body>
 </html>
