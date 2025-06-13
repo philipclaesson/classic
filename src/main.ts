@@ -2,7 +2,7 @@ import * as L from "leaflet";
 
 function render() {
   // Create a map container
-  const map = L.map("map")
+  const map = L.map("map");
 
   // Add a tile layer to the map
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
@@ -23,11 +23,7 @@ function render() {
     marker.on("popupclose", () => {
       const urlParams = new URLSearchParams(window.location.search);
       urlParams.delete("bar");
-      window.history.replaceState(
-        null,
-        "",
-        `${window.location.pathname}`
-      );
+      window.history.replaceState(null, "", `${window.location.pathname}`);
     });
 
     bar.marker = marker;
@@ -45,10 +41,7 @@ function render() {
     bar.marker?.openPopup();
     document
       .getElementById("meta-og-title")
-      ?.setAttribute(
-        "content",
-        `${bar.name} at classickærten.net!`
-      );
+      ?.setAttribute("content", `${bar.name} at classickærten.net!`);
     document
       .getElementById("meta-og-description")
       ?.setAttribute(
@@ -57,11 +50,7 @@ function render() {
       );
     document
       .getElementById("meta-og-url")
-      ?.setAttribute(
-        "content",
-        `${window.location.origin}?bar=${bar.urlName}`
-      );
-
+      ?.setAttribute("content", `${window.location.origin}?bar=${bar.urlName}`);
   } else {
     map.setView([59.313964, 18.070678], 6);
   }
@@ -72,30 +61,30 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function barHTLM(bar: Bar) {
-    return `<div class="bar"><b>${bar.name}</b><br>💸 ${bar.price}:- | 🍺 ${bar.type} <br> ✅ Rating: ${bar.rating}/5<br><a href="${bar.link}" target="_blank">Ta mig dit</a></div>`;
+  return `<div class="bar"><b>${bar.name}</b><br>💸 ${bar.price}:- | 🍺 ${bar.type} <br> ✅ Rating: ${bar.rating}/5<br><a href="${bar.link}" target="_blank">Ta mig dit</a></div>`;
 }
 
 function barIcon(bar: Bar) {
-    const vw = window.innerWidth;
-    const vh = window.innerHeight;
-    var bottleIcon = L.icon({
-      iconUrl: "img/classic-bottle.png",
+  const vw = window.innerWidth;
+  const vh = window.innerHeight;
+  var bottleIcon = L.icon({
+    iconUrl: "img/classic-bottle.png",
 
-      iconSize: [0.07*vh, 0.07*vh], // size of the icon (img is square)
-      popupAnchor: [0, -19], // point from which the popup should open relative to the iconAnchor
-    });
-    var draftIcon = L.icon({
-      iconUrl: "img/classic-logo.png",
+    iconSize: [0.07 * vh, 0.07 * vh], // size of the icon (img is square)
+    popupAnchor: [0, -19], // point from which the popup should open relative to the iconAnchor
+  });
+  var draftIcon = L.icon({
+    iconUrl: "img/classic-logo.png",
 
-      iconSize: [31*0.002*vh, 42*0.002*vh], // size of the icon (img is 314 × 425)
-      popupAnchor: [0, -21], // point from which the popup should open relative to the iconAnchor
-    });
-    if (bar.type === "Flaska") {
-      return bottleIcon;
-    } else {
-        return draftIcon;
-    }
-} 
+    iconSize: [31 * 0.002 * vh, 42 * 0.002 * vh], // size of the icon (img is 314 × 425)
+    popupAnchor: [0, -21], // point from which the popup should open relative to the iconAnchor
+  });
+  if (bar.type === "Flaska") {
+    return bottleIcon;
+  } else {
+    return draftIcon;
+  }
+}
 
 // Define a struct called Bar
 interface Bar {
@@ -282,12 +271,21 @@ const bars: Bar[] = [
     coordinates: [59.32461686678219, 18.07522673918963],
   },
   {
-    "name": "Café Ariman",
+    name: "Café Ariman",
     urlName: "ariman",
     price: 76,
     type: "Fat",
     rating: 5,
     link: "https://maps.app.goo.gl/RzN6wLDF9mVBrtjW8",
     coordinates: [55.70340895488117, 13.193749895193498],
-  }
+  },
+  {
+    name: "Mölle Krukmakeri",
+    urlName: "molle-krukmakeri",
+    price: 97,
+    type: "Fat",
+    rating: 5,
+    link: "https://maps.app.goo.gl/DFeoX3nuJp2bwLXh7",
+    coordinates: [56.282474899276636, 12.49965584408741],
+  },
 ];
