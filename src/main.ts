@@ -288,4 +288,13 @@ const bars: Bar[] = [
     link: "https://maps.app.goo.gl/DFeoX3nuJp2bwLXh7",
     coordinates: [56.282474899276636, 12.49965584408741],
   },
+  {
+    name: "Sofia Common",
+    urlName: "sofia-common",
+    price: 82,
+    type: "Fat",
+    rating: 5,
+    link: "59.31379103739882, 18.090642426318542",
+    coordinates: [59.31379103739882, 18.090642426318542],
+  },
 ];
