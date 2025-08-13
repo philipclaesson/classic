@@ -297,4 +297,13 @@ const bars: Bar[] = [
     link: "59.31379103739882, 18.090642426318542",
     coordinates: [59.31379103739882, 18.090642426318542],
   },
+  {
+    name: "Tre Vänner",
+    urlName: "tre-vanner",
+    price: 79,
+    type: "Fat",
+    rating: 5,
+    link: "https://maps.app.goo.gl/irseajfAfxvnyLoT6",
+    coordinates: [55.606041516208904, 13.009757439828254],
+  },
 ];
