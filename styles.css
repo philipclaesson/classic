@@ -1,5 +1,5 @@
 #map {
-    height: 80vh;
+    height: 83vh;
     width: 100vw;
     margin-left: 0vw;
     margin-right: 0vw;
@@ -30,14 +30,18 @@ body {
 }
 
 #header {
-    height: 10vh;
+    height: 15vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1vh 0;
 }
 
 #logo {
     height: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
+    max-height: 14vh;
+    width: auto;
+    object-fit: contain;
 }
 
 .bar {
