@@ -1,5 +1,5 @@
 #map {
-    height: 83vh;
+    height: 100vh;
     width: 100vw;
     margin-left: 0vw;
     margin-right: 0vw;
@@ -29,20 +29,6 @@ body {
     margin: 0;
 }
 
-#header {
-    height: 15vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 1vh 0;
-}
-
-#logo {
-    height: 100%;
-    max-height: 14vh;
-    width: auto;
-    object-fit: contain;
-}
 
 .bar {
     font-size: calc(1.2vw + 1.2vh);
