@@ -5,10 +5,12 @@ function render() {
   const map = L.map("map");
 
   // Add a tile layer to the map
-  L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
+  // CARTO requires a key since Sept 2026. Free tier; the key only works from xn--classickrten-edb.net
+  // (restricted in the CARTO dashboard), so tiles will not load on localhost or other hosts.
+  const cartoKey = "cb1_4mkt_1_1d664eae927ad163e87f2967";
+  L.tileLayer(`https://basemaps.cartocdn.com/rastertiles/light_all/{z}/{x}/{y}{r}.png?key=${cartoKey}`, {
     attribution:
       '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/">CARTO</a>',
-    subdomains: "abcd",
     maxZoom: 20,
   }).addTo(map);
 
